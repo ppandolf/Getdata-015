@@ -6,7 +6,6 @@
 # /data/UCI HAR Dataset subdirectory within current working directory
 #################################################################
 
-
 library(dplyr)
 
 ##################################
@@ -61,11 +60,10 @@ merged_data <- rbind(xyz_test, xyz_train)
 #######################################################################
 # Original input and interim tables can be cleared now      
 #######################################################################
-# rm(x_test_readings, y_test_activities, z_test_subjects) 
-# rm(x_train_readings, y_train_activities, z_train_subjects)
-# rm(xtrct_test, xtrct_train)
-# rm(xyz_test, xyz_train) 
-
+rm(x_test_readings, y_test_activities, z_test_subjects) 
+rm(x_train_readings, y_train_activities, z_train_subjects)
+rm(xtrct_test, xtrct_train)
+rm(xyz_test, xyz_train) 
 
 #######################################################################
 # Apply the Actvity labels   
@@ -96,7 +94,7 @@ names(merged_data) <- c(knames, vnames)
 #######################################################################
 arrange(merged_data, Activity, SubjectID)
 
-tdata <- summarize(grouped_data, 
+tdata <- summarize(group_by(merged_data, Activity, SubjectID), 
  tBodyAcc.mean...X = mean(tBodyAcc.mean...X, na.rm = TRUE),
  tBodyAcc.mean...Y= mean(tBodyAcc.mean...Y, na.rm = TRUE),
  tBodyAcc.std...Z= mean(tBodyAcc.std...Z, na.rm = TRUE),
