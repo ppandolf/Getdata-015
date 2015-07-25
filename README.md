@@ -1,21 +1,22 @@
 ##Usage reference for run_analysis.R  
  
 This script computes mean and standard values on physical activity 
-measurements captured on the Samsung Galaxy S smartphone
+measurements determined using HAR (Human Activity Recognition) capabilities
+of the Samsung Galaxy S smartphone 
 
-###Source data URL:
+##Source data URL:
 https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
 
+##A synopsis of the source data collection can be found here:
+http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
 
-###Usage Notes
 A separate README.txt file within the source data zip package describes the 
 physical actvity experiment and data collection methodology, and enumerates
 the individual data files within the the zip package
-of the experimentset   
- 
-please see CodeBook.md for details about the data extraction and manipulation
-performed by run_analysis.R
 
+## run_analysis.R Usage Notes
+
+###Input 
 run_analysis.R is written to read input files from the
 /data/UCI HAR Dataset directory tree within the current R working directory.
 Simply extract the entire "UCI HAR Dataset" folder from the source zip package
@@ -38,7 +39,17 @@ as follows:
 		subject_test.txt				
 
 
+###Process Steps To Produce Tidy Data
+* extract, clean up, and apply data labels
+* assemble test population data components
+* assemble training population data components
+* retain designated labeled variables for analysis
+* integrate test and training data in common structure
+* summarize variables (i.e. calculate group-column means) per assignment specification
+
+
 ###Final Output 
 The tidy dataset file is written to the working directory /data subdirectory
-and named getdata015_HARtidy.txt 
+and named getdata015_HARtidy.txt.  Please see CodeBook.md for tidy data element  
+inventory.
     
